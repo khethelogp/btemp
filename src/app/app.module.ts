@@ -18,6 +18,7 @@ import { PricingComponent } from './components/pricing/pricing.component';
 import { TeamComponent } from './components/team/team.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { InnerPageComponent } from './components/inner-page/inner-page.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { FooterComponent } from './components/footer/footer.component';
     PricingComponent,
     TeamComponent,
     ContactComponent,
-    FooterComponent
+    FooterComponent,
+    InnerPageComponent
   ],
   imports: [
     BrowserModule,
