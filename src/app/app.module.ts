@@ -13,12 +13,13 @@ import { ClientsComponent } from './components/clients/clients.component';
 import { ServicesComponent } from './components/services/services.component';
 import { CtaComponent } from './components/cta/cta.component';
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
-import { PortfolioDetailsComponent } from './components/portfolio/portfolio-details/portfolio-details.component';
+import { PortfolioDetailsComponent } from './pages/portfolio-details/portfolio-details.component';
 import { PricingComponent } from './components/pricing/pricing.component';
 import { TeamComponent } from './components/team/team.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { InnerPageComponent } from './components/inner-page/inner-page.component';
+import { B2tComponent } from './components/b2t/b2t.component';
 
 @NgModule({
   declarations: [
@@ -38,13 +39,11 @@ import { InnerPageComponent } from './components/inner-page/inner-page.component
     TeamComponent,
     ContactComponent,
     FooterComponent,
-    InnerPageComponent
+    InnerPageComponent,
+    B2tComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
