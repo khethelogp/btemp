@@ -6,14 +6,27 @@
   text-align: center;
   box-shadow: 0 0 30px rgba(214, 215, 216, 0.6);
   padding: 20px 0 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
+
 .contact .info-box i {
-  font-size: 32px;
+  font-size: 28px;
   color: #cc1616;
   border-radius: 50%;
-  padding: 8px;
+}
+
+.info-box-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 64px;
+  width: 64px;
+  padding: 0.8rem;
   border: 2px dotted #f5a0a0;
 }
+
 .contact .info-box h3 {
   font-size: 20px;
   color: #777777;

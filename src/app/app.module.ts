@@ -20,6 +20,7 @@ import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { InnerPageComponent } from './components/inner-page/inner-page.component';
 import { B2tComponent } from './components/b2t/b2t.component';
+import { PreloaderComponent } from './components/preloader/preloader.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { B2tComponent } from './components/b2t/b2t.component';
     FooterComponent,
     InnerPageComponent,
     B2tComponent,
+    PreloaderComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
