@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { on, select, onscroll } from 'src/app/utils/utils';
+import * as AOS from 'aos';
+import * as Isotope from 'isotope-layout';
+declare var require: any;
+const GLightbox = require('glightbox');
 
 @Component({
   selector: 'app-home',
@@ -49,19 +53,6 @@ export class HomeComponent implements OnInit {
         });
       };
 
-      let backtotop = select('.back-to-top');
-      if (backtotop) {
-        const toggleBacktotop = () => {
-          if (window.scrollY > 100) {
-            backtotop.classList.add('active');
-          } else {
-            backtotop.classList.remove('active');
-          }
-        };
-        window.addEventListener('load', toggleBacktotop);
-        onscroll(document, toggleBacktotop);
-      }
-
       on('click', '.mobile-nav-toggle', function (this: any, e: any) {
         select('#navbar').classList.toggle('navbar-mobile');
         this.classList.toggle('bi-list');
@@ -100,63 +91,49 @@ export class HomeComponent implements OnInit {
         true
       );
 
-      // window.addEventListener('load', () => {
-      //   let portfolioContainer = select('.portfolio-container');
-      //   if (portfolioContainer) {
-      //     let portfolioIsotope = new Isotope(portfolioContainer, {
-      //       itemSelector: '.portfolio-item',
-      //     });
+      window.addEventListener('load', () => {
+        let portfolioContainer = select('.portfolio-container');
+        if (portfolioContainer) {
+          let portfolioIsotope = new Isotope(portfolioContainer, {
+            itemSelector: '.portfolio-item',
+          });
 
-      //     let portfolioFilters = select('#portfolio-flters li', true);
+          let portfolioFilters = select('#portfolio-flters li', true);
 
-      //     on(
-      //       'click',
-      //       '#portfolio-flters li',
-      //       function (e) {
-      //         e.preventDefault();
-      //         portfolioFilters.forEach(function (el) {
-      //           el.classList.remove('filter-active');
-      //         });
-      //         this.classList.add('filter-active');
+          on(
+            'click',
+            '#portfolio-flters li',
+            function (this: any, e: any) {
+              e.preventDefault();
+              portfolioFilters.forEach(function (el: any) {
+                el.classList.remove('filter-active');
+              });
+              this.classList.add('filter-active');
 
-      //         portfolioIsotope.arrange({
-      //           filter: this.getAttribute('data-filter'),
-      //         });
-      //         portfolioIsotope.on('arrangeComplete', function () {
-      //           AOS.refresh();
-      //         });
-      //       },
-      //       true
-      //     );
-      //   }
-      // });
+              portfolioIsotope.arrange({
+                filter: this.getAttribute('data-filter'),
+              });
+              // portfolioIsotope.on('arrangeComplete', function () {
+              //   AOS.refresh();
+              // });
+            },
+            true
+          );
+        }
+      });
 
-      // const portfolioLightbox = GLightbox({
-      //   selector: '.portfolio-lightbox',
-      // });
+      const portfolioLightbox = GLightbox({
+        selector: '.portfolio-lightbox',
+      });
 
-      // new Swiper('.portfolio-details-slider', {
-      //   speed: 400,
-      //   loop: true,
-      //   autoplay: {
-      //     delay: 5000,
-      //     disableOnInteraction: false,
-      //   },
-      //   pagination: {
-      //     el: '.swiper-pagination',
-      //     type: 'bullets',
-      //     clickable: true,
-      //   },
-      // });
-
-      // window.addEventListener('load', () => {
-      //   AOS.init({
-      //     duration: 1000,
-      //     easing: 'ease-in-out',
-      //     once: true,
-      //     mirror: false,
-      //   });
-      // });
+      window.addEventListener('load', () => {
+        AOS.init({
+          duration: 1000,
+          easing: 'ease-in-out',
+          once: true,
+          mirror: false,
+        });
+      });
     })();
   }
 }
